@@ -1,0 +1,15 @@
+{
+    "expo": {
+        "name": "Mybank",
+        "slug": "My-Bank",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./src/components/assets/placa-de-museu.png",
+        
+        "splash": {
+          "image": "./src/components/assets/MyBank.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#fff"
+        }
+    }
+}

@@ -1,16 +1,20 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { ThemeProvider } from 'styled-components'
+import Navigation from "./src/navigation";
+import theme from './theme'
+import {Provider} from 'react-redux'
+import store from "./src/redux";
 
-export default function App() {
+const  App = () => {
+  console.disableYellowBox = true
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Universal React with Expo</Text>
-    </View>
+    <Provider store={store} >
+    <ThemeProvider theme={theme}>
+     <Navigation />
+    </ThemeProvider>
+    </Provider>
   );
 }
+
+export default  App
