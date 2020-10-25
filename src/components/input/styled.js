@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
-import { getRelativeSize, getPercentageSizeWidth } from '../../../utils'
-import { Platform } from 'react-native'
+import styled, { css } from "styled-components";
+import { getRelativeSize, getPercentageSizeWidth } from "../../../utils";
+import { Platform } from "react-native";
 
 export const StyledInput = styled.TextInput`
   width: 95%;
@@ -10,28 +10,28 @@ export const StyledInput = styled.TextInput`
     css`
       width: 80%;
     `}
-`
+`;
 
 export const Remove = styled.TouchableOpacity`
   width: ${getRelativeSize(20)};
   height: ${getRelativeSize(20)};
   border-radius: 100px;
-  background-color: ${g => g.theme.color.general.greyLight};
+  background-color: ${(g) => g.theme.color.general.greyLight};
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const BoxRequire = styled.View`
   border-width: 1px;
   border-radius: 5px;
   padding: 0 ${getRelativeSize(4)};
-  border-color: ${g => g.theme.color.general.primary};
-`
+  border-color: ${(g) => g.theme.color.general.primary};
+`;
 
 export const BoxInput = styled.View`
-  padding: ${getRelativeSize(Platform.OS === 'ios' ? 15 : 10)};
-  border-radius: ${g => g.theme.radius.medium};
-  background-color: ${g => g.theme.color.input.input};
+  padding: ${getRelativeSize(Platform.OS === "ios" ? 15 : 10)};
+  border-radius: ${(g) => g.theme.radius.medium};
+  background-color: ${(g) => g.theme.color.input.input};
   width: ${getPercentageSizeWidth(90)};
   flex-direction: row;
   align-items: center;
@@ -49,24 +49,24 @@ export const BoxInput = styled.View`
   ${({ mBottom }) =>
     mBottom &&
     css`
-      margin-bottom: ${g => getRelativeSize(g.theme.space.medium)};
+      margin-bottom: ${(g) => getRelativeSize(g.theme.space.medium)};
     `}
     ${({ mTop }) =>
     mTop &&
     css`
-      margin-top: ${g => getRelativeSize(g.theme.space.medium)};
+      margin-top: ${(g) => getRelativeSize(g.theme.space.medium)};
     `}
     ${({ vertical }) =>
     vertical &&
     css`
-      margin-top: ${g => getRelativeSize(g.theme.space.large)};
-      margin-bottom: ${g => getRelativeSize(g.theme.space.large)};
+      margin-top: ${(g) => getRelativeSize(g.theme.space.large)};
+      margin-bottom: ${(g) => getRelativeSize(g.theme.space.large)};
     `}
     ${({ error }) =>
     error &&
     css`
-      background-color: ${g => g.theme.color.input.cardError};
-      color: ${g => g.theme.color.input.textError};
+      background-color: ${(g) => g.theme.color.input.cardError};
+      color: ${(g) => g.theme.color.input.textError};
     `}
     ${({ noRadiusLeft }) =>
     noRadiusLeft &&
@@ -77,18 +77,20 @@ export const BoxInput = styled.View`
     ${({ noBackground }) =>
     noBackground &&
     css`
-      background-color: ${g => g.theme.color.input.input};
-      border-color: ${g => g.theme.color.input.input};
+      background-color: ${(g) => g.theme.color.input.input};
+      border-color: ${(g) => g.theme.color.input.input};
     `};
   ${({ noBorder }) =>
     noBorder &&
     css`
-      border-color: ${g => g.theme.color.input.input};
+      border-color: ${(g) => g.theme.color.input.whitePure};
+      background-color: transparent;
+      border-width: 1px;
     `};
   ${({ BackgroundCin }) =>
     BackgroundCin &&
     css`
-      background-color: ${g => g.theme.color.input.greyLighter};
-      border-color: ${g => g.theme.color.input.greyLighter};
+      background-color: ${(g) => g.theme.color.input.greyLighter};
+      border-color: ${(g) => g.theme.color.input.greyLighter};
     `};
-`
+`;

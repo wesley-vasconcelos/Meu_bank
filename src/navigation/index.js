@@ -4,10 +4,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../screens/login";
 import Initial from "../screens/initial";
 import Home from "../screens/home";
-import ListMoney from "../screens/listmoney";
+import Menu from "../screens/menu";
 import { useSelector, useDispatch } from "react-redux";
 import { AsyncStorage } from "react-native";
 import { requestAccessSuccess } from "../redux/user";
+import SignIn from "../screens/signIn";
 
 const Stack = createStackNavigator();
 
@@ -46,10 +47,11 @@ const Navigation = () => {
           component={Initial}
         />
         <Stack.Screen name="Home" options={defaultOptions} component={Home} />
+        <Stack.Screen name="Menu" options={defaultOptions} component={Menu} />
         <Stack.Screen
-          name="ListMoney"
+          name="SignIn"
           options={defaultOptions}
-          component={ListMoney}
+          component={SignIn}
         />
       </Stack.Navigator>
     </NavigationContainer>

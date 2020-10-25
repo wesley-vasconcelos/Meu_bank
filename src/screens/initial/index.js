@@ -2,12 +2,14 @@ import React from "react";
 import { Logo } from "../../components/assets";
 import Button from "../../components/button";
 import DefaultText from "../../components/defaltText";
+import HeaderBank from "../../components/headerBank";
 import { Container } from "./styled";
 
 const Initial = ({ navigation }) => {
   return (
     <>
-      <Logo />
+      <HeaderBank />
+
       <Container>
         <DefaultText
           align="right"
@@ -36,6 +38,7 @@ const Initial = ({ navigation }) => {
           color="black"
           text="Abrir uma conta"
           radius="ball"
+          onPress={() => navigation.navigate("SignIn")}
           width={85}
           mTop={30}
           bold
