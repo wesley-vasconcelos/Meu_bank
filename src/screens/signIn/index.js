@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import theme from "../../../theme";
 import DefaultText from "../../components/defaltText";
 import HeaderBank from "../../components/headerBank";
@@ -9,16 +9,25 @@ import { useNavigation } from "@react-navigation/native";
 import Input from "../../components/input";
 import { cpfMask, validateEmail, cnpjMask } from "../../../utils";
 import { KeyboardAvoidingView } from "react-native";
-
-const SignIn = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { createAccess } from "../../redux/user";
+const SignIn = ({ navigation }) => {
   const { goBack } = useNavigation();
   const [auth, setAuth] = useState({
     email: "",
     password: "",
     name: "",
-    CpfCnpj: "",
+    cpf: "",
   });
 
+  const {
+    user: { data },
+  } = useSelector((value) => value);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    !!data?._id && navigation.navigate("Home");
+  }, [data]);
   return (
     <Container>
       <FixRow>
@@ -58,13 +67,13 @@ const SignIn = () => {
             multiline
             keyboardType="numeric"
             multiline={false}
-            value={auth.CpfCnpj || ""}
+            value={auth.cpf || ""}
             mTop={30}
             mBottom={16}
             onChangeText={(text) =>
               text.length <= 14
-                ? setAuth({ ...auth, CpfCnpj: cpfMask(text) })
-                : setAuth({ ...auth, CpfCnpj: cnpjMask(text) })
+                ? setAuth({ ...auth, cpf: cpfMask(text) })
+                : setAuth({ ...auth, cpf: cnpjMask(text) })
             }
             placeholder="CPF / CNPJ
                 "
@@ -87,6 +96,7 @@ const SignIn = () => {
         text="Enviar"
         radius="ball"
         width={85}
+        onPress={() => dispatch(createAccess(auth))}
         mTop={80}
         bold
         align="center"
@@ -96,6 +106,4 @@ const SignIn = () => {
   );
 };
 
-{
-}
 export default SignIn;

@@ -13,7 +13,7 @@ import { ScrollView } from "react-native";
 import { formatedText, InfoCardList } from "../../../utils";
 import { Line } from "../line";
 
-const Card = () => {
+const Card = ({ infoList }) => {
   const { navigate } = useNavigation();
   const [balance, setBalance] = useState(true);
   const [list, setList] = useState(false);
@@ -73,7 +73,8 @@ const Card = () => {
               type="title2"
             />
           )}
-          {!list && (
+          {console.log(infoList)}
+          {!list && !!infoList[0] && (
             <ButtonList onPress={() => setList(!list)}>
               <MaterialCommunityIcons
                 name="card-text"
@@ -86,7 +87,7 @@ const Card = () => {
                 mLeft={10}
                 width={60}
                 text={formatedText(
-                  "Compra em Lourencini com de alim de R$ 50,23 no débito ontem",
+                  `${infoList[0]?.name + " " + "R$" + infoList[0]?.price}`,
                   55
                 )}
                 themeColor="greyLighter"
@@ -124,7 +125,7 @@ const Card = () => {
                 />
               </FixRow>
               <Line width={85} />
-              {InfoCardList.map((item) => (
+              {infoList.map((item) => (
                 <ViewList onPress={() => setList(!list)}>
                   <MaterialCommunityIcons
                     name="card-text"
@@ -133,7 +134,7 @@ const Card = () => {
                   />
 
                   <DefaultText
-                    align="center"
+                    align="left"
                     mLeft={10}
                     width={60}
                     text={formatedText(item.name, 25)}

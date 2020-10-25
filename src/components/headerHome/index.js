@@ -4,7 +4,9 @@ import { Container, FixRow } from "./styled";
 import { AntDesign } from "@expo/vector-icons";
 import theme from "../../../theme";
 import { useNavigation } from "@react-navigation/native";
-const HeaderHome = () => {
+import { formatedText } from "../../../utils";
+const HeaderHome = ({ data }) => {
+  console.log(data);
   const { navigate } = useNavigation();
   return (
     <Container>
@@ -20,7 +22,7 @@ const HeaderHome = () => {
           align="center"
           mBottom={5}
           mLeft={10}
-          text="Wesley"
+          text={formatedText(data.name || "Bank", 12)}
           themeColor="whitePure"
           type="title2"
         />

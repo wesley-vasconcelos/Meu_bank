@@ -8,3 +8,9 @@ export const Container = styled.View`
   justify-content: center;
   width: ${getPercentageSizeWidth(100)};
 `;
+
+export const FixImage = styled.View`
+  align-items: center;
+  justify-content: center;
+  width: ${getPercentageSizeWidth(90)};
+`;

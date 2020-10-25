@@ -6,8 +6,11 @@ import { Container, FixRow, ButtonList, MenuView } from "./styled";
 import { AntDesign } from "@expo/vector-icons";
 import Button from "../../components/button";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { requestLogoutUser } from "../../redux/user";
+import { AsyncStorage } from "react-native";
 
-const Menu = () => {
+const Menu = ({ data }) => {
   const array = [
     { name: "Me ajuda" },
     { name: "Perfil" },
@@ -17,19 +20,11 @@ const Menu = () => {
     { name: "Configurações do app" },
   ];
 
-  const { goBack } = useNavigation();
-
+  const { goBack, navigate } = useNavigation();
+  const dispatch = useDispatch();
   return (
     <Container>
-      <FixRow>
-        <AntDesign
-          name="left"
-          onPress={() => goBack()}
-          size={24}
-          color={theme.color.general.greyLighter}
-        />
-        <HeaderBank />
-      </FixRow>
+      <HeaderBank />
       <FixRow>
         <DefaultText
           align="center"
@@ -57,7 +52,7 @@ const Menu = () => {
         <DefaultText
           align="center"
           bold
-          text="0001"
+          text={data.agency}
           themeColor="whitePure"
           type="subtitle"
         />
@@ -75,7 +70,7 @@ const Menu = () => {
           align="center"
           bold
           mBottom={20}
-          text="3333333-3"
+          text={data.account}
           themeColor="whitePure"
           type="subtitle"
         />
@@ -103,6 +98,11 @@ const Menu = () => {
       <Button
         text="Sair"
         radius="ball"
+        onPress={async () => {
+          await AsyncStorage.removeItem("user");
+          dispatch(requestLogoutUser());
+          navigate("Initial");
+        }}
         width={85}
         mTop={80}
         bold

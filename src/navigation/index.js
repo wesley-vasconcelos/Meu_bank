@@ -19,23 +19,24 @@ const Navigation = () => {
       backgroundColor: "#fff",
     },
   };
-  // const {
-  //   user: { data },
-  // } = useSelector((value) => value);
+  const {
+    user: { data },
+  } = useSelector((value) => value);
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   AsyncStorage.getItem("user").then((res) =>
-  //     dispatch(requestAccessSuccess(JSON.parse(res)))
-  //   );
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    AsyncStorage.getItem("user").then((res) =>
+      dispatch(requestAccessSuccess({ user: JSON.parse(res) }))
+    );
+  }, []);
 
   // const initialRoute = () => {
-  //   if (!!data && !!data?._id) {
+  //   if (!!data?._id) {
   //     return "Home";
   //   }
   //   return "Initial";
   // };
+  const MenuOption = () => <Menu data={data} />;
 
   return (
     <NavigationContainer>
@@ -47,7 +48,11 @@ const Navigation = () => {
           component={Initial}
         />
         <Stack.Screen name="Home" options={defaultOptions} component={Home} />
-        <Stack.Screen name="Menu" options={defaultOptions} component={Menu} />
+        <Stack.Screen
+          name="Menu"
+          options={defaultOptions}
+          component={MenuOption}
+        />
         <Stack.Screen
           name="SignIn"
           options={defaultOptions}
