@@ -53,7 +53,7 @@ const Login = ({ navigation }) => {
             >
               <Input
                 width={85}
-                multiline
+                multiline={false}
                 keyboardType="numeric"
                 mTop={30}
                 value={infoCpf || ""}
@@ -108,9 +108,12 @@ const Login = ({ navigation }) => {
             >
               <Input
                 width={85}
-                multiline
+                textContentType={"password"}
+                multiline={false}
+                secureTextEntry={true}
                 keyboardType="numeric"
                 secureTextEntry
+                maxLength={6}
                 mTop={30}
                 mBottom={16}
                 placeholder="Senha"

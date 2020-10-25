@@ -39,7 +39,7 @@ export const BoxInput = styled.View`
     focus &&
     css`
       border-left-width: ${getRelativeSize(multiline ? 0 : 8)};
-      border-color: #7e7ef0;
+      border-color: ${(g) => g.theme.color.input.primary};
     `}
   ${({ width }) =>
     width &&
