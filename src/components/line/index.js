@@ -1,9 +1,13 @@
-import styled, { css } from 'styled-components'
-import { getPercentageSizeHeight, getPercentageSizeWidth, getRelativeSize } from '../../../utils'
+import styled, { css } from "styled-components";
+import {
+  getPercentageSizeHeight,
+  getPercentageSizeWidth,
+  getRelativeSize,
+} from "../../../utils";
 
 export const Line = styled.View`
   height: 1px;
-  background-color: ${g => g.theme.color.button.black};
+  background-color: ${(g) => g.theme.color.button.caution};
   ${({ width }) =>
     width &&
     css`
@@ -19,4 +23,4 @@ export const Line = styled.View`
     css`
       margin-bottom: ${getRelativeSize(mBottom)};
     `}
-`
+`;
