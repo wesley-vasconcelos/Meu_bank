@@ -8,6 +8,7 @@ import { Container } from "./styled";
 import { useSelector, useDispatch } from "react-redux";
 import { requestAccess } from "../../redux/user";
 import HeaderBank from "../../components/headerBank";
+import { cnpjMask, cpfMask } from "../../../utils";
 
 const Login = ({ navigation }) => {
   const [infoCpf, setInfoCPF] = useState("");
@@ -55,10 +56,16 @@ const Login = ({ navigation }) => {
                 multiline
                 keyboardType="numeric"
                 mTop={30}
+                value={infoCpf || ""}
                 mBottom={16}
                 placeholder="CPF
                 "
                 onChangeText={(text) => setInfoCPF(text)}
+                // onChangeText={(text) => {
+                //   text.length <= 14
+                //     ? setInfoCPF(cpfMask(text))
+                //     : setInfoCPF(cnpjMask(text));
+                // }}
               />
             </KeyboardAvoidingView>
             <Button
