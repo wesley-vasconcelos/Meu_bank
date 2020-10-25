@@ -7,7 +7,6 @@
 
 ```sh
 yarn install
-npm install 
 ```
 
 
