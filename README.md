@@ -1,3 +1,17 @@
 # Meu-Bank
-#yarn 
-#yarn start
+ 
+ 
+ ## Installation
+
+
+
+```sh
+yarn install
+npm install 
+```
+
+
+## Usage 
+```sh
+yarn start
+```
