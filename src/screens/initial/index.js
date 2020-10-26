@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ImgaeInitial, Logo } from "../../components/assets";
 import Button from "../../components/button";
 import DefaultText from "../../components/defaltText";
-import HeaderBank from "../../components/headerBank";
+import HeaderMoney from "../../components/headerMoney";
 import { Container, FixImage } from "./styled";
 
 const Initial = ({ navigation }) => {
@@ -16,7 +16,7 @@ const Initial = ({ navigation }) => {
   }, [data]);
   return (
     <Container>
-      <HeaderBank />
+      <HeaderMoney />
       <FixImage>
         <ImgaeInitial />
       </FixImage>

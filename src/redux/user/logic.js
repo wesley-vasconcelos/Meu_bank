@@ -35,7 +35,6 @@ export const handleAccessLogic = () => {
   return createLogic({
     type: CREATE_ACCESS,
     process({ action: { payload } }, dispatch, done) {
-      console.log("pay", payload);
       fetch("https://api-teste-wesley.herokuapp.com/auth/register", {
         method: "post",
         headers: {

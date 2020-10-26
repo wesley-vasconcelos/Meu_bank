@@ -59,7 +59,6 @@ const Login = ({ navigation }) => {
                 text.length <= 14
                   ? setInfoCPF(cpfMask(text))
                   : setInfoCPF(cnpjMask(text));
-                console.log("==== haha", text.length);
               }}
             />
           </KeyboardAvoidingView>
@@ -113,7 +112,6 @@ const Login = ({ navigation }) => {
             text={Loading ? "Carregando" : "Acessar"}
             onPress={() => {
               dispatch(requestAccess({ cpf: infoCpf, password: passWord }));
-              console.log({ cpf: infoCpf, password: passWord });
             }}
             radius="ball"
             loading={Loading}

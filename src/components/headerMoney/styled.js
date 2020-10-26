@@ -7,8 +7,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-around;
   width: ${getPercentageSizeWidth(60)};
-  padding-right: ${getPercentageSizeWidth(10)};
-  margin-top: ${getRelativeSize(20)};
+  padding-top: ${getRelativeSize(10)}
   flex-direction: row;
 `;
 export const FixRow = styled.View`

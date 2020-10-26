@@ -16,7 +16,7 @@ export const MenuView = styled.View`
   background-color: ${(g) => g.theme.color.button.whitePure};
   width: ${getPercentageSizeWidth(90)};
   padding: ${getRelativeSize(50)};
-  margin-top: ${getPercentageSizeWidth(20)};
+  margin-top: ${getPercentageSizeWidth(10)};
 
   align-items: center;
   justify-content: center;

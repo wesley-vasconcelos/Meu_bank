@@ -30,16 +30,7 @@ const SignIn = ({ navigation }) => {
   }, [data]);
   return (
     <Container>
-      <FixRow>
-        <AntDesign
-          name="left"
-          onPress={() => goBack()}
-          size={24}
-          color={theme.color.general.greyLighter}
-        />
-        <HeaderBank />
-      </FixRow>
-
+      <HeaderBank />
       <MenuView>
         <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
           <Input
